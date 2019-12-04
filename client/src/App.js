@@ -20,27 +20,6 @@ import WidgetList from "./components/widget/WidgetList";
 import WidgetEdit from "./components/widget/WidgetEdit";
 
 function App() {
-  const [websites, setWebsites] = useState([
-    { _id: "123", name: "Facebook", developerId: "456", description: "Lorem" },
-    { _id: "234", name: "Tweeter", developerId: "456", description: "Lorem" },
-    { _id: "456", name: "Msimbo", developerId: "456", description: "Lorem" },
-    { _id: "890", name: "Go", developerId: "123", description: "Lorem" },
-    {
-      _id: "567",
-      name: "Tic Tac Toe",
-      developerId: "123",
-      description: "Lorem"
-    },
-    { _id: "678", name: "Checkers", developerId: "123", description: "Lorem" },
-    { _id: "789", name: "Chess", developerId: "234", description: "Lorem" }
-  ]);
-
-  const [pages, setPages] = useState([
-    { _id: "321", name: "Post 1", websiteId: "456", title: "Lorem" },
-    { _id: "432", name: "Post 2", websiteId: "456", title: "Lorem" },
-    { _id: "543", name: "Post 3", websiteId: "456", title: "Lorem" }
-  ]);
-
   const [widgets, setWidgets] = useState([
     {
       _id: "123",
@@ -79,104 +58,6 @@ function App() {
       url: "https://youtu.be/AM2Ivdi9c4E"
     }
   ]);
-
-  const addUser = user => {
-    setUsers([...users, user]);
-  };
-
-  // update user by id
-  const updateUser = newUser => {
-    setUsers(
-      users.map(user => {
-        if (user._id === newUser._id) {
-          return newUser;
-        } else {
-          return user;
-        }
-      })
-    );
-  };
-
-  // get websites by user id
-  const getWebsites = uid => {
-    const curWebs = [];
-    for (let website of websites) {
-      if (website.developerId === uid) {
-        curWebs.push(website);
-      }
-    }
-
-    return curWebs;
-  };
-
-  // getWebsite
-  const getWebsite = wid => {
-    for (let website of websites) {
-      if (website._id === wid) {
-        return website;
-      }
-    }
-  };
-
-  // add new website
-  const addWebsite = newWeb => {
-    setWebsites([...websites, newWeb]);
-  };
-
-  // remove website
-  const removeWebsite = wid => {
-    setWebsites(websites.filter(website => website._id !== wid));
-  };
-
-  // update website
-  const updateWebsite = newWeb => {
-    setWebsites(
-      websites.map(website => {
-        if (website._id === newWeb._id) {
-          return newWeb;
-        } else {
-          return website;
-        }
-      })
-    );
-  };
-
-  // get pages by website id
-  const getPages = wid => {
-    return pages.filter(page => page.websiteId === wid);
-  };
-
-  // add new page into pages
-  const addPage = newPage => {
-    setPages([...pages, newPage]);
-  };
-
-  // get page by pid
-  const getPage = pid => {
-    for (let page of pages) {
-      if (page._id === pid) {
-        return page;
-      }
-    }
-  };
-
-  // remove Page by pid
-  const removePage = pid => {
-    setPages(pages.filter(page => page._id !== pid));
-  };
-
-  // update page
-  const updatePage = newPage => {
-    setPages(
-      pages.map(page => {
-        if (page._id === newPage._id) {
-          return newPage;
-        } else {
-          return page;
-        }
-      })
-    );
-  };
 
   // Get Widgets by page id
   const getWidgets = pid => {
