@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 
 export default function WidgetImage(props) {
   const params = useParams();
+
   return (
     <div>
       <nav className="navbar bg-danger fixed-top text-warning">
