@@ -78,7 +78,6 @@ export default function WidgetChooser(props) {
       <footer className="navbar bg-warning fixed-bottom">
         <span />
         <Link className="text-danger" to={`/user/${params.uid}`}>
-          >
           <i className="fas fa-user-ninja" />
         </Link>
       </footer>

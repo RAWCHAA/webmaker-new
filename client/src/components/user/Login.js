@@ -51,9 +51,9 @@ export default function Login(props) {
         <button className="btn btn-warning btn-block" to="/login">
           Login
         </button>
-        <button className="btn btn-danger btn-block" to="/Register">
+        <Link className="btn btn-danger btn-block" to="/Register">
           Register
-        </button>
+        </Link>
       </form>
     </div>
   );

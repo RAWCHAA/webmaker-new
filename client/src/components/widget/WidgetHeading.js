@@ -50,7 +50,7 @@ export default function WidgetHeading(props) {
             <input
               type="range"
               min={1}
-              max={60}
+              max={6}
               className="form-control"
               id="size"
               name="size"

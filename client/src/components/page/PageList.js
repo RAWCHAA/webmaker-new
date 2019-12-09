@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 export default function PageList(props) {
   const params = useParams();
@@ -7,14 +8,20 @@ export default function PageList(props) {
   const [pages, setPages] = useState([]);
 
   useEffect(() => {
-    setPages(props.getPages(params.wid));
-  }, [params.wid, props]);
+    getPages();
+    // eslint-disable-next-line
+  }, []);
+
+  const getPages = async () => {
+    const res = await axios.get(`/api/page/website/${params.wid}`);
+    setPages(res.data);
+  };
 
   return (
     <div>
       <nav className="navbar bg-danger fixed-top text-warning">
         <div>
-          <Link Link to={`/user/${params.uid}/website`}>
+          <Link to={`/user/${params.uid}/website`}>
             <i className="fas fa-arrow-left text-warning" />
           </Link>
           <span className="navbar-brand h1 mb-0 h1 ml-4">PAGES</span>

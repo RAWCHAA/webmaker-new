@@ -63,7 +63,7 @@ export default function WidgetYouTube(props) {
             <input
               type="range"
               className="form-control"
-              min={10}
+              min={1}
               max={100}
               id="width"
               name="width"
