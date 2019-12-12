@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "build": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "build": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\" "
   },
   "repository": {
     "type": "git",
@@ -19,7 +21,12 @@
   },
   "homepage": "https://github.com/RAWCHAA/webmaker-new#readme",
   "dependencies": {
+    "config": "^3.2.4",
     "express": "^4.17.1",
+    "mongoose": "^5.8.0",
     "nodemon": "^2.0.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.1"
   }
 }

@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const User = require("../models/Users");
+
 const users = [
   {
     _id: "123",
@@ -76,9 +78,9 @@ router.get("/", (req, res) => {
 });
 
 // Create new user
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   const newUser = req.body;
-  users.push(newUser);
+  const user = await newUser.save();
   res.json(newUser);
 });
 
