@@ -1,9 +1,9 @@
-//import express library
 const express = require("express");
 const path = require("path");
 const app = express();
 const connectDB = require("./config/db");
 
+// Connect DB
 connectDB();
 
 app.use(express.json());

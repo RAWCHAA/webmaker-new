@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
-import uuid from "uuid";
 import axios from "axios";
 
 export default function WebsiteNew(props) {

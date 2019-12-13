@@ -6,11 +6,6 @@ export default function Register(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
-  const [birthday, setBirthday] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [email2, setEmail2] = useState("");
 
   const history = useHistory();
 
@@ -29,16 +24,15 @@ export default function Register(props) {
     }
     // Add new user into users
     const newUser = {
-      birthday: birthday,
       username: username,
       password: password,
       firstName: "",
       lastName: "",
       email: ""
     };
-    await axios.post("/api/user", newUser);
+    const res2 = await axios.post("/api/user", newUser);
     // Navigate user into his profile
-    history.push(`/user/${newUser._id}`);
+    history.push(`/user/${res2.data._id}`);
   };
   return (
     <div>
@@ -52,104 +46,41 @@ export default function Register(props) {
             <input
               type="text"
               className="form-control"
-              id="FirstName"
-              placeholder="FIRST NAME"
-              value={firstName}
-              onChange={e => setFirstName(e.target.value)}
-            />
-            <br />
-            <input
-              type="text"
-              className="form-control"
-              id="LastName"
-              placeholder="LAST NAME"
-              value={lastName}
-              onChange={e => setLastName(e.target.value)}
-            />
-            <br />
-            <input
-              type="text"
-              className="form-control"
-              id="Birthday"
-              placeholder="DATE OF BIRTH"
-              value={birthday}
-              onChange={e => setBirthday(e.target.value)}
-            />
-            <br />
-            <input
-              type="text"
-              className="form-control"
-              id="Username"
-              placeholder="USERNAME"
+              placeholder="Username"
               value={username}
               onChange={e => setUsername(e.target.value)}
             />
-            <br />
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              placeholder="EMAIL"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-            />
-            <br />
-            <input
-              type="email"
-              className="form-control"
-              id="email2"
-              placeholder="CONFIRM EMAIL"
-              value={email2}
-              onChange={e => setEmail2(e.target.value)}
-            />
-            <br />
+          </div>
+          <div className="form-group">
             <input
               type="password"
               className="form-control"
-              id="password"
-              placeholder="CREATE PASSWORD"
+              placeholder="Password"
               value={password}
               onChange={e => setPassword(e.target.value)}
             />
-            <br />
+          </div>
+          <div className="form-group">
             <input
               type="password"
               className="form-control"
-              id="password2"
-              placeholder="CONFIRM PASSWORD"
+              placeholder="Verify Password"
               value={password2}
               onChange={e => setPassword2(e.target.value)}
             />
-            <br />
-            <input
-              type="text"
-              className="form-control"
-              id="description"
-              placeholder="ABOUT YOU"
-            />
-            <br />
-            <input
-              type="text"
-              className="form-control"
-              id="goals"
-              placeholder="GOALS"
-            />
-            <br />
-            <Link className="btn btn-outline-warning btn-block" to="/Login">
-              COMPLETE
-            </Link>
-            <div>
-              <br />
-              <div>
-                <Link className="btn btn-outline-danger btn-block" to="/Home">
-                  CANCEL
-                </Link>
-              </div>
-            </div>
-            <nav className="navbar bg-warning fixed-bottom text-danger">
-              <span className="h1 mb-0">WEB MAKER</span>
-            </nav>
           </div>
+          <br />
+          <Link className="btn btn-outline-warning btn-block" to="/Login">
+            COMPLETE
+          </Link>
+          <div>
+            <Link className="btn btn-outline-danger btn-block" to="/Home">
+              CANCEL
+            </Link>
+          </div>
+          <nav className="navbar bg-warning fixed-bottom text-danger">
+            <span className="h1 mb-0">WEB MAKER</span>
+          </nav>
         </form>
       </div>
     </div>
