@@ -34,6 +34,7 @@ export default function Register(props) {
     // Navigate user into his profile
     history.push(`/user/${res2.data._id}`);
   };
+
   return (
     <div>
       <nav className="navbar bg-danger fixed-top text-warning">
@@ -70,9 +71,9 @@ export default function Register(props) {
             />
           </div>
           <br />
-          <Link className="btn btn-outline-warning btn-block" to="/Login">
+          <button className="btn btn-outline-warning btn-block">
             COMPLETE
-          </Link>
+          </button>
           <div>
             <Link className="btn btn-outline-danger btn-block" to="/Home">
               CANCEL

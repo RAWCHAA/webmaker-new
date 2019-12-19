@@ -24,7 +24,6 @@ export default function WebsiteNew(props) {
   const submit = async e => {
     e.preventDefault();
     const newWeb = {
-      _id: uuid.v4(),
       name: name,
       description: description,
       developerId: params.uid

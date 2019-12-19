@@ -35,7 +35,7 @@ export default function WidgetList(props) {
       <main className="container-fluid">
         {widgets.map(widget => (
           <section key={widget._id}>
-            <div className="position-absolute item-right p-1 bg-dark rounded-left">
+            <div className="position-absolute absolute-right p-1 bg-dark rounded-left">
               <Link
                 to={`/user/${params.uid}/website/${params.wid}/page/${params.pid}/widget/${widget._id}`}
               >
