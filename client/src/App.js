@@ -1,22 +1,24 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// user components
+// User Components
 import Login from "./components/user/Login";
 import Register from "./components/user/Register";
 import Profile from "./components/user/Profile";
-//website components
-import WebsiteEdit from "./components/website/WebsiteEdit";
+// Website Components
 import WebsiteList from "./components/website/WebsiteList";
 import WebsiteNew from "./components/website/WebsiteNew";
-//page components
-import PageEdit from "./components/page/PageEdit";
+import WebsiteEdit from "./components/website/WebsiteEdit";
+// Page Components
 import PageList from "./components/page/PageList";
 import PageNew from "./components/page/PageNew";
-// widget
-import WidgetChooser from "./components/widget/WidgetChooser";
+import PageEdit from "./components/page/PageEdit";
+// Widget Components
 import WidgetList from "./components/widget/WidgetList";
+import WidgetChooser from "./components/widget/WidgetChooser";
 import WidgetEdit from "./components/widget/WidgetEdit";
+// Routing components
+import PrivateRoute from "./components/routing/PrivateRoute";
 
 function App() {
   return (
@@ -28,18 +30,18 @@ function App() {
         <Route exact path="/register">
           <Register />
         </Route>
-        <Route exact path="/user/:uid">
+        <PrivateRoute exact path="/user/:uid">
           <Profile />
-        </Route>
-        <Route exact path="/user/:uid/website">
+        </PrivateRoute>
+        <PrivateRoute exact path="/user/:uid/website">
           <WebsiteList />
-        </Route>
-        <Route exact path="/user/:uid/website/new">
+        </PrivateRoute>
+        <PrivateRoute exact path="/user/:uid/website/new">
           <WebsiteNew />
-        </Route>
-        <Route exact path="/user/:uid/website/:wid">
+        </PrivateRoute>
+        <PrivateRoute exact path="/user/:uid/website/:wid">
           <WebsiteEdit />
-        </Route>
+        </PrivateRoute>
         <Route exact path="/user/:uid/website/:wid/page">
           <PageList />
         </Route>
